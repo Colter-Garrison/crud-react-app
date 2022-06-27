@@ -18,6 +18,7 @@ export async function getBeers() {
 }
 
 export async function updateBeers(beer, id) {
+  console.log(beer);
   const data = await client
     .from('beers')
     .update(beer)

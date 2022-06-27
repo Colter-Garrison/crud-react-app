@@ -10,7 +10,7 @@ export default function CreatePage() {
   async function handleSubmit(e) {
     e.preventDefault();
     const beer = await createBeer({
-      name: name,
+      beer: name,
       brewery: brewery
     });
     

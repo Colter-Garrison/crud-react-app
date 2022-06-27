@@ -34,9 +34,6 @@ export default function App() {
               <Link to='/create'>Create new Beer</Link>
             </li>
             <li>
-              <Link to='/beers/1'>Update a Beer</Link>
-            </li>
-            <li>
               <Link to='/beers'>List of Your Beers</Link>
             </li>
             <li>
