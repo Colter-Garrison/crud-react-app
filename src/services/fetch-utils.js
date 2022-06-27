@@ -13,12 +13,10 @@ export async function getBeers() {
   const response = await client
     .from('beers')
     .select('*');
-  console.log(response.data);
   return response.data;
 }
 
 export async function updateBeers(beer, id) {
-  console.log(beer);
   const data = await client
     .from('beers')
     .update(beer)
@@ -55,7 +53,6 @@ export async function signUp(email, password) {
   });
 
   if (error) {
-    console.error(error);
     throw error;
   } else {
     return user;

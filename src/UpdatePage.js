@@ -8,7 +8,6 @@ export default function UpdatePage() {
   const [name, setName] = useState('');
   const [brewery, setBrewery] = useState('');
   const [currentBeer, setCurrentBeer] = useState({});
-  console.log(currentBeer);
   useEffect(() => {
     async function doFetch() {
       const beer = await getBeersById(id);

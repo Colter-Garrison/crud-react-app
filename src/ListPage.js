@@ -9,11 +9,9 @@ export default function ListPage() {
     async function doFetch() {
       const allBeers = await getBeers();
       setBeers(allBeers);
-      console.log(allBeers);
     }
     doFetch();
   }, []);
-  console.log(beers);
   return (
     <div>
       {

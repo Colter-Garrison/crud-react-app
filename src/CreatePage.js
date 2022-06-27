@@ -9,12 +9,11 @@ export default function CreatePage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const beer = await createBeer({
+    await createBeer({
       beer: name,
       brewery: brewery
     });
     
-    console.log(beer);
     setName('');
     setBrewery('');
     push('/beers');
