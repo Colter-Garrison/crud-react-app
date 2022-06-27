@@ -1,7 +1,7 @@
 import { client } from './client';
 
 export async function createBeer(beer) {
-  const { data, error } = await client
+  const data = await client
     .from('beers')
     .insert(beer)
     .single();
@@ -10,15 +10,15 @@ export async function createBeer(beer) {
 }
 
 export async function getBeers() {
-  const { data, error } = await client
+  const response = await client
     .from('beers')
     .select('*');
-
-  return data;
+  console.log(response.data);
+  return response.data;
 }
 
 export async function updateBeers(beer, id) {
-  const { data, error } = await client
+  const data = await client
     .from('beers')
     .update(beer)
     .match({ id: id })
@@ -28,7 +28,7 @@ export async function updateBeers(beer, id) {
 }
 
 export async function deleteBeers(id) {
-  const { data, error } = await client
+  const data = await client
     .from('beers')
     .delete()
     .match({ id: id })
@@ -38,7 +38,7 @@ export async function deleteBeers(id) {
 }
 
 export async function getBeersById(id) {
-  const { data, error } = await client
+  const data = await client
     .from('beers')
     .select('*')
     .match({ id })
@@ -62,7 +62,7 @@ export async function signUp(email, password) {
 }
 
 export async function signIn(email, password) {
-  const { user } = await client.auth.signIn({
+  const user = await client.auth.signIn({
     email: email,
     password: password,
   });
@@ -71,5 +71,6 @@ export async function signIn(email, password) {
 }
 
 export async function logout() {
-  const { error } = await client.auth.signOut();
+  await client.auth.signOut();
+  return window.location.href = '/';
 }

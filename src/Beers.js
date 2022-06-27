@@ -1,7 +1,7 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Beers() {
-  return (
-    <div>Beers</div>
-  );
+export function Beers({ beer }) {
+  return <Link to={`/beers/${beer.id}`} >
+    <p>{beer.beer} by {beer.brewery}</p>
+  </Link>;
 }
