@@ -55,12 +55,6 @@ export default function App() {
           <Route exact path='/beers/:id'>
             <UpdatePage />
           </Route>
-          {/* <Route exact path='/beers'>
-            {
-              user ? <ListPage />
-                : <Redirect to='/' />
-            }
-          </Route> */}
           <Route exact path='/create'>
             <CreatePage />
           </Route>

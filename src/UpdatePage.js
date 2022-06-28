@@ -7,13 +7,12 @@ export default function UpdatePage() {
   const { id } = useParams();
   const [name, setName] = useState('');
   const [brewery, setBrewery] = useState('');
-  const [currentBeer, setCurrentBeer] = useState({});
+
   useEffect(() => {
     async function doFetch() {
       const beer = await getBeersById(id);
-      setName(beer.beer);
-      setBrewery(beer.brewery);
-      setCurrentBeer(beer);
+      setName(beer.beer || '');
+      setBrewery(beer.brewery || '');
     }
     doFetch();
   }, [id]);
@@ -40,7 +39,7 @@ export default function UpdatePage() {
       <form onSubmit={handleSubmit}>
         <label>
           Name of Beer:
-          <input onChange={e => setName(e.target.value)} value={currentBeer.name} />
+          <input onChange={e => setName(e.target.value)} value={name} />
         </label>
         <label>
           Brewery:
